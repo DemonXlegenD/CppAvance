@@ -13,6 +13,7 @@ T Collection<T>::getElementByIndex(int index) {
 	if (index >= 0 && index < taille) {
 		return dynamicArray[index];
 	}
+	std::cerr << "Index invalide." << std::endl;
 	return NULL;
 }
 

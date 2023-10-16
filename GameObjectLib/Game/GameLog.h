@@ -9,4 +9,3 @@ public:
 	static void debug(std::string& message);
 	static void error(std::string& message);
 };
-
