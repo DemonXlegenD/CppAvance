@@ -17,6 +17,9 @@ public:
 	Vector2D minus(const Vector2D left, const Vector2D right);
 	//Vector2D operator-(const Vector2D& left, const Vector2D& right);
 
+	T kVector2D(T k, const Vector2D vector);
+	T scalarProduct(const Vector2D left, const Vector2D right);
+
 private:
 	T X = 0;
 	T Y = 0;
