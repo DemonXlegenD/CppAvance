@@ -1,16 +1,16 @@
 #include "GameConfig.h"
 
 void GameConfig::createKnight() {
-	Archetype* archetype = new ArchetypeKnight();
+	PlayerArchetype* archetype = new PlayerArchetypeKnight();
 	archetypes.push_back(archetype);
 }
 
 void GameConfig::createMage() {
-	Archetype* archetype = new ArchetypeMage();
+	PlayerArchetype* archetype = new PlayerArchetypeMage();
 	archetypes.push_back(archetype);
 }
 
-Archetype* GameConfig::getArchetypeByIndex(int index) {
+PlayerArchetype* GameConfig::getArchetypeByIndex(int index) {
 	if (archetypes.size() > index) {
 		return archetypes[index];
 	}

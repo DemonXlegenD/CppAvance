@@ -1,6 +1,7 @@
 #pragma once
+#include "../PlayerArchetype.h"
 
-class PlayerArchetypeKnight
+class PlayerArchetypeKnight : public PlayerArchetype
 {
 public:
 

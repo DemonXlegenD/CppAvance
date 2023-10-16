@@ -1,9 +1,9 @@
 #pragma once
-#include "Player/Archetype.h"
+#include "Player/PlayerArchetype.h"
 
 class PlayerAbstract
 {
 private:
-	Archetype archetype;
+	PlayerArchetype archetype;
 };
 
