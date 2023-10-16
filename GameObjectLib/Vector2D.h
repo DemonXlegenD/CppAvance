@@ -12,7 +12,10 @@ public:
 	void setY(T y) { Y = y; }
 
 	Vector2D add(const Vector2D left, const Vector2D right);
-	Vector2D operator+(const Vector2D& left, const Vector2D& right);
+	//Vector2D operator+(const Vector2D& left, const Vector2D& right);
+
+	Vector2D minus(const Vector2D left, const Vector2D right);
+	//Vector2D operator-(const Vector2D& left, const Vector2D& right);
 
 private:
 	T X = 0;

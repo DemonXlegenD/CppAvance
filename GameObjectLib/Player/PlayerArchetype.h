@@ -1,6 +1,6 @@
 #pragma once
 
-class Archetype
+class PlayerArchetype
 {
 public:
 	int getAttack() { return 42; }
