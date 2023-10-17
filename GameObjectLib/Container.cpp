@@ -4,6 +4,9 @@ template<typename T>
 Container<T>::Container() : size(0), capacity(1), dynamicArray(new int[capacity]) {}
 
 template<typename T>
+Container<T>::Container(int size, int capacity, T* dynamicArray) : size(size), capacity(capacity), dynamicArray(dynamicArray) {}
+
+template<typename T>
 int Container<T>::getSize() {
 	return size;
 }
@@ -73,13 +76,13 @@ Container<T> Container<T>::push(T element) {
 }
 
 template<typename T>
-Container<T> Container<T>::pop(T element) {
+Container<T> Container<T>::pop() {
 	if (size > 0) {
 		size--;
 		if (size < capacity / 2) {
 			capacity /= 2;
-			resize(capacity);
 		}
+		resize(capacity);
 	}
 
 	return this;
@@ -90,17 +93,17 @@ int Container<T>::findIndexByElement(T findElement) {
 	for (int i = 0; i < size; i++) {
 		if (dynamicArray[i] == findElement) return i;
 	}
-	std::cerr << "No element : " << findElement << "." << std::endl;
+	GameLog::error(std::string("No element : " + findElement));
 	return -1;
-}
-
-template<typename T>
-Container<T>::~Container() {
-	delete[] dynamicArray;
 }
 
 template<typename T>
 bool Container<T>::isEmpty() {
 	return size == 0;
+}
+
+template<typename T>
+Container<T>::~Container() {
+	delete[] dynamicArray;
 }
 
