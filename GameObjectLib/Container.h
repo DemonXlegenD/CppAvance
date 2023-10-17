@@ -16,13 +16,17 @@ public:
 	T getElementByIndex(int index);
 
 	Container<T> resize(int size);
+	Container<T> resize(int newSize, T element);
+	Container<T> reserve(int capacity);
 	Container<T> empty();
 	Container<T> showElements();
+	Container<T> push(T element);
+	Container<T> pop();
+	Container<T> shrinkToFit();
 
 	int findIndexByElement(T element);
 
-	Container<T> push(T element);
-	Container<T> pop();
+
 
 	bool isEmpty();
 
