@@ -1,10 +1,18 @@
 #include "Container.h"
 
+/*
+CONSTRUCTORS
+*/
+
 template<typename T>
 Container<T>::Container() : size(0), capacity(1), dynamicArray(new int[capacity]) {}
 
 template<typename T>
 Container<T>::Container(int size, int capacity, T* dynamicArray) : size(size), capacity(capacity), dynamicArray(dynamicArray) {}
+
+/*
+METHODS RETURN INT
+*/
 
 template<typename T>
 int Container<T>::getSize() {
@@ -36,22 +44,36 @@ T Container<T>::getElementByIndex(int index) {
 }
 
 template<typename T>
-Container<T> Container<T>::resize(int size) {
-	T* newArray = new T[capacity];
-	for (int i = 0; i < size; i++) {
-		newArray[i] = dynamicArray[i];
+Container<T> Container<T>::resize(int newSize) {
+	if (newSize > capacity) {
+		reserve(newSize);
 	}
-	delete[] dynamicArray;
-	dynamicArray = newArray;
+	for (int i = size; i < newSize; i++) {
+		dynamicArray[i] = T();
+	}
 
 	return this;
 }
 
 template<typename T>
-Container<T>  Container<T>::empty() {
+Container<T> Container<T>::resize(int newSize, T element) {
+	if (newSize > capacity) {
+		reserve(newSize);
+	}
+	for (int i = size; i < newSize; i++) {
+		dynamicArray[i] = element;
+	}
+
+	return this;
+}
+
+
+
+template<typename T>
+Container<T> Container<T>::empty() {
 	size = 0;
-	capacity = 1;
-	resize(size);
+	capacity = 0;
+	reserve(capacity + 1);
 
 	return this;
 }
@@ -68,7 +90,7 @@ template<typename T>
 Container<T> Container<T>::push(T element) {
 	if (size >= capacity) {
 		capacity *= 2;
-		resize(capacity);
+		reserve(capacity);
 	}
 	dynamicArray[size] = element;
 	size++;
@@ -82,6 +104,31 @@ Container<T> Container<T>::pop() {
 		if (size < capacity / 2) {
 			capacity /= 2;
 		}
+		reserve(capacity);
+	}
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::reserve(int newCapacity) {
+	if (newCapacity > capacity) {
+		T* newArray = new T[capacity];
+		for (int i = 0; i < size; i++) {
+			newArray[i] = dynamicArray[i];
+		}
+		delete[] dynamicArray;
+		dynamicArray = newArray;
+		capacity = newCapacity;
+	}
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::shrinkToFit() {
+	if (size > 0) {
+		capacity = size;
 		resize(capacity);
 	}
 
