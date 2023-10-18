@@ -12,8 +12,6 @@ Vector2D<T> Vector2D<T>::add(const Vector2D left, const Vector2D right) {
 	return Vector2D(left.getX() + right.getX(), left.getY() + right.getY());
 }
 
-
-
 template<typename T>
 Vector2D<T> Vector2D<T>::minus(const Vector2D left, const Vector2D right) {
 	return Vector2D(left.getX() - right.getX(), left.getY() - right.getY());
@@ -285,6 +283,19 @@ Vector2D<T> Vector2D<T>::operator/(const Vector2D<T>& vector2D) const {
 	if (vector2D.getX() != 0 && vector2D.getY() != 0) return Vector2D(X / vector2D.getX(), Y / vector2D.getY());
 	GameLog::error(std::string("Cannot divide by 0"));
 	return Vector2D(0, 0);
+}
+
+template<typename T>
+T Vector2D<T>::operator[](int index) const {
+	if(index == 0){
+		return X;
+	}
+	else if (index == 1) {
+		return Y;
+	}
+	else {
+		GameLog::error(std::string("Index out of range"));
+	}
 }
 
 template<typename T>
