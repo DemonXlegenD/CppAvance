@@ -2,7 +2,7 @@
 
 Collider2D::Collider2D();
 
-Collider2D::collisionTrigger(const Collider2D& colliderA, const Collider2D& colliderB)
+bool Collider2D::collisionTrigger(const Collider2D& colliderA, const Collider2D& colliderB)
 {
 	bool collisionX = (colliderA.GetX() < colliderB.GetX() + colliderB.GetWidth()) &&
 		(colliderA.GetX() + colliderA.GetWidth() > colliderB.GetX());
