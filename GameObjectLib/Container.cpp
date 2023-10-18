@@ -5,10 +5,59 @@ CONSTRUCTORS
 */
 
 template<typename T>
-Container<T>::Container() : size(0), capacity(1), dynamicArray(new int[capacity]) {}
+Container<T>::Container() : size(0), capacity(1), dynamicArray(new T[capacity]) {}
 
 template<typename T>
 Container<T>::Container(int size, int capacity, T* dynamicArray) : size(size), capacity(capacity), dynamicArray(dynamicArray) {}
+
+
+
+/*==============================================================================================================================================*/
+/*--------------------------------------------------------------------ITERATORS-----------------------------------------------------------------*/
+/*==============================================================================================================================================*/
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::begin() {
+	return Iterator(dynamicArray);
+}
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::end() {
+	return Iterator(dynamicArray + size);
+}
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::rbegin() {
+	return Iterator(dynamicArray + size - 1);
+}
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::rend() {
+	T* array = dynamicArray;
+	return Iterator(dynamicArray - 1);
+}
+
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::cbegin() const {
+	return Iterator(dynamicArray);
+}
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::cend() const {
+	return Iterator(dynamicArray + size);
+}
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::crbegin() const {
+	const T* array = dynamicArray;
+	return Iterator(dynamicArray + size - 1);
+}
+
+template<typename T>
+typename Container<T>::Iterator Container<T>::crend() const {
+	return Iterator(dynamicArray - 1);
+}
 
 /*
 METHODS RETURN INT
@@ -71,6 +120,15 @@ Container<T> Container<T>::resize(int newSize, T element) {
 
 template<typename T>
 Container<T> Container<T>::empty() {
+	size = 0;
+	capacity = 0;
+	reserve(capacity + 1);
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::clear() {
 	size = 0;
 	capacity = 0;
 	reserve(capacity + 1);
@@ -154,3 +212,176 @@ Container<T>::~Container() {
 	delete[] dynamicArray;
 }
 
+/*==============================================================================================================================================*/
+/*----------------------------------------------------------------ELEMENT ACCESS----------------------------------------------------------------*/
+/*==============================================================================================================================================*/
+template<typename T>
+T Container<T>::operator[](int index) {
+	return *(dynamicArray + index);
+}
+
+template<typename T>
+T Container<T>::at(int index) {
+	return dynamicArray[index];
+}
+
+template<typename T>
+T Container<T>::front() {
+	return *(dynamicArray);
+}
+
+template<typename T>
+T Container<T>::back() {
+	return *(dynamicArray + size);
+}
+
+template<typename T>
+T Container<T>::data() {
+	T* dataPointer = dynamicArray;
+	return dataPointer;
+}
+
+/*==============================================================================================================================================*/
+/*--------------------------------------------------------------------MODIFIERS-----------------------------------------------------------------*/
+/*==============================================================================================================================================*/
+
+template<typename T>
+Container<T> Container<T>::assign(int size, T value) {
+	if (size != 0) {
+		empty();
+	}
+	resize(size, T);
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::assign(Container<T> container) {
+	size = container.getSize();
+	capacity = container.getCapacity();
+	delete[] dynamicArray;
+	dynamicArray = container.getAllElements();
+}
+
+template<typename T>
+Container<T> Container<T>::assign(Iterator first, Iterator last) {
+	int newSize = 0;
+	for (Iterator it = first; it != last; ++it) {
+		++newSize;
+	}
+	if (newSize > capacity) {
+		reserve(newSize);
+	}
+	size = 0;
+	for (Iterator it = first; it != last; ++it) {
+		dynamicArray[size] = *it;
+		++size;
+	}
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::insert(int position, T value) {
+	if (position >= size) {
+		Error::RaiseOutOfRangeError(std::string("Position out of range"));
+	}
+	else {
+		size++;
+		int index = 0;
+		T* newArray = new T[size];
+		for (int i = 0; i < size; i++) {
+			if (i == position) {
+				newArray[i] = value;
+				index++;
+			}
+			else {
+				newArray[i] = dynamicArray[i - index];
+			}
+
+		}
+		delete[] dynamicArray;
+		dynamicArray = newArray;
+	}
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::insert(int position, T value, int number) {
+	if (position >= size) {
+		Error::RaiseOutOfRangeError(std::string("Position out of range"));
+	}
+	else {
+		size += number;
+		int index = 0;
+		T* newArray = new T[size];
+		for (int i = 0; i < size; i++) {
+			if (i == position) {
+				newArray[i] = value;
+				index++;
+			}
+			else {
+				newArray[i] = dynamicArray[i - index];
+			}
+		}
+		delete[] dynamicArray;
+		dynamicArray = newArray;
+	}
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::insert(int position, Container<T> container) {
+	if (position >= size) {
+		Error::RaiseOutOfRangeError(std::string("Position out of range"));
+	}
+	else {
+		size += container.getSize();
+		int index = 0;
+		T* newArray = new T[size];
+		for (int i = 0; i < size; i++) {
+			if (i == position) {
+				newArray[i] = container.at(index);
+				index++;
+			}
+			else {
+				newArray[i] = dynamicArray[i - index];
+			}
+		}
+		delete[] dynamicArray;
+		dynamicArray = newArray;
+	}
+
+	return this;
+}
+
+template<typename T>
+Container<T> Container<T>::insert(int position, Iterator first, Iterator last) {
+	if (position >= size) {
+		Error::RaiseOutOfRangeError(std::string("Position out of range"));
+	}
+	else {
+		int numElementsToInsert = 0;
+		for (Iterator it = first; it != last; ++it) {
+			++numElementsToInsert;
+		}
+
+		if (size + numElementsToInsert > capacity) {
+			reserve(size + numElementsToInsert);
+		}
+
+		for (Iterator it = end(); it != position; --it) {
+			*(dynamicArray + numElementsToInsert) = *it;
+		}
+		int index = 0;
+		for (Iterator it = first; it != last; ++it) {
+			*(dynamicArray + index) = *it;
+			index++;
+			++size;
+		}
+	}
+
+	return this;
+}
