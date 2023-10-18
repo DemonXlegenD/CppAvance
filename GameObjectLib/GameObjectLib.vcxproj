@@ -164,6 +164,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Container.cpp" />
+    <ClCompile Include="Error.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game\GameStats.cpp" />
     <ClCompile Include="Game\GameState.cpp" />
@@ -178,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Container.h" />
+    <ClInclude Include="Error.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Game\GameStats.h" />
     <ClInclude Include="Game\GameState.h" />

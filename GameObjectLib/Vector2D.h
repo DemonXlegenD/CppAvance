@@ -48,6 +48,7 @@ public:
 	static Vector2D negativeInfinity();
 	static Vector2D positiveInfinity();
 
+	//MODIFIER LES return T
 	/*Static Methods*/
 	static T angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2);
 	static T dot(const Vector2D<T> left, const Vector2D<T> right);
@@ -67,14 +68,17 @@ public:
 
 	Vector2D operator-(const Vector2D& otherVector2D) const;
 	Vector2D operator-() const;
-	
+
 	Vector2D operator*(T k) const;
 	Vector2D operator*(const Vector2D& vector2D) const;
 
 	Vector2D operator/(T k) const;
 	Vector2D operator/(const Vector2D& vector2D) const;
+	T operator[](int index) const;
 
 	bool operator==(const Vector2D& vector2D) const;
+
+
 
 private:
 	T X = 0;
