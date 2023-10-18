@@ -12,10 +12,7 @@ Vector2D<T> Vector2D<T>::add(const Vector2D left, const Vector2D right) {
 	return Vector2D(left.getX() + right.getX(), left.getY() + right.getY());
 }
 
-template<typename T>
-Vector2D<T> Vector2D<T>::operator+(const Vector2D<T>& otherVector2D) const {
-	return Vector2D(this->getX() + otherVector2D.getX(), this->getY() + otherVector2D.getY());
-}
+
 
 template<typename T>
 Vector2D<T> Vector2D<T>::minus(const Vector2D left, const Vector2D right) {
@@ -23,19 +20,10 @@ Vector2D<T> Vector2D<T>::minus(const Vector2D left, const Vector2D right) {
 }
 
 template<typename T>
-Vector2D<T> Vector2D<T>::operator-(const Vector2D<T>& otherVector2D) const {
-	return Vector2D(this->getX() - otherVector2D.getX(), this->getY() - otherVector2D.getY());
-}
-
-template<typename T>
 Vector2D<T> Vector2D<T>::kVector2D(T k, const Vector2D vector) {
 	return Vector2D(k * vector.getX(), k * vector.getY());
 }
 
-template<typename T>
-Vector2D<T> Vector2D<T>::operator*(T k) const {
-	return Vector2D(this->getX() * k, this->getY() * k);
-}
 
 
 
@@ -124,7 +112,10 @@ bool Vector2D<T>::equals(Vector2D<T> vector2D) {
 	return (vector2D.getX() == X && vector2D.getY() == Y);
 }
 
-/*Static Methods*/
+/*==============================================================================================================================================*/
+/*----------------------------------------------------------------STATIC METHODS----------------------------------------------------------------*/
+/*==============================================================================================================================================*/
+
 template<typename T>
 T Vector2D<T>::angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2) {
 	T magnitude1 = vector2D_1.magnitude();
@@ -230,4 +221,73 @@ Vector2D<T> Vector2D<T>::max(const Vector2D<T> vector2D_1, const Vector2D<T> vec
 template<typename T>
 Vector2D<T> Vector2D<T>::perpendicular(const Vector2D<T> vector2D) {
 	return Vector(-vector2D.getY(), vector2D.getX());
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::reflect(const Vector2D<T> vector2D, const Vector2D<T> normal) {
+	T dotProduct = Vector2D<T>::dot(vector2D, normal);
+	T reflectX = vector2D.getX() - 2 * dotProduct * normal.getX();
+	T reflectY = vector2D.getY() - 2 * dotProduct * normal.getY();
+
+	return Vector(reflectX, reflectY);
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::scale(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2) {
+	return Vector(vector2D_1.getX() * vector2D_2.getX(), vector2D_1.getY() * vector2D_2.getY());
+}
+
+template<typename T>
+float Vector2D<T>::signedAngle(const Vector2D<T> from, const Vector2D<T> to) {
+	float angle = std::atan2(from.getY(), from.getX()) - atan2(to.getY(), to.getX());
+	return angle;
+}
+
+
+/*==============================================================================================================================================*/
+/*-------------------------------------------------------------------OPERATORS------------------------------------------------------------------*/
+/*==============================================================================================================================================*/
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator+(const Vector2D<T>& otherVector2D) const {
+	return Vector2D(X + otherVector2D.getX(), Y + otherVector2D.getY());
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator-(const Vector2D<T>& vector2D) const {
+	return Vector2D(X - vector2D.getX(), Y - vector2D.getY());
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator-() const {
+	return Vector2D(-X, -Y);
+}
+
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator*(T k) const {
+	return Vector2D(this->getX() * k, this->getY() * k);
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator*(const Vector2D<T>& vector2D) const {
+	return Vector2D(X * vector2D.getX(), Y * vector2D.getY());
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator/(T k) const {
+	if (k != 0) return Vector2D(this->getX() / k, this->getY() / k);
+	return this;
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::operator/(const Vector2D<T>& vector2D) const {
+	if (vector2D.getX() != 0 && vector2D.getY() != 0) return Vector2D(X / vector2D.getX(), Y / vector2D.getY());
+	GameLog::error(std::string("Cannot divide by 0"));
+	return Vector2D(0, 0);
+}
+
+template<typename T>
+bool Vector2D<T>::operator==(const Vector2D& vector2D) const {
+	return (X == vector2D.getX() && Y == vector2D.getY());
 }
