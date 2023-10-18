@@ -21,21 +21,20 @@ public:
 	Vector2D normalized();
 
 	Vector2D add(const Vector2D left, const Vector2D right);
-	Vector2D operator+(const Vector2D& otherVector2D) const;
+
 
 	Vector2D minus(const Vector2D left, const Vector2D right);
-	Vector2D operator-(const Vector2D& otherVector2D) const;
 
 	Vector2D kVector2D(T k, const Vector2D vector);
-	Vector2D operator*(T k) const;
 
-	
-	
+
+
+
 	/*Public methods*/
 	void normalize();
 	void set(T x, T y);
 	void toString();
-	
+
 
 	bool equals(Vector2D<T> vector2D);
 
@@ -51,14 +50,32 @@ public:
 
 	/*Static Methods*/
 	static T angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2);
-    static T dot(const Vector2D<T> left, const Vector2D<T> right);
-    static Vector2D<T> clampMagnitude(const Vector2D<T> vector, double maxMagnitude);
-    static double distance(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2);
+	static T dot(const Vector2D<T> left, const Vector2D<T> right);
+	static Vector2D<T> clampMagnitude(const Vector2D<T> vector, double maxMagnitude);
+	static double distance(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2);
 	static Vector2D<T> lerp(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2, double t);
 	static Vector2D<T> lerpUnclamped(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2, double t);
 	static Vector2D<T> min(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2);
 	static Vector2D<T> max(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2);
 	static Vector2D<T> perpendicular(const Vector2D<T> vector);
+	static Vector2D<T> reflect(const Vector2D<T> vector2D, const Vector2D<T> normal);
+	static Vector2D<T> scale(const Vector2D<T> vector2D, const Vector2D<T> normal);
+	static float signedAngle(const Vector2D<T> from, const Vector2D<T> to);
+
+	/*Operators*/
+	Vector2D operator+(const Vector2D& otherVector2D) const;
+
+	Vector2D operator-(const Vector2D& otherVector2D) const;
+	Vector2D operator-() const;
+	
+	Vector2D operator*(T k) const;
+	Vector2D operator*(const Vector2D& vector2D) const;
+
+	Vector2D operator/(T k) const;
+	Vector2D operator/(const Vector2D& vector2D) const;
+
+	bool operator==(const Vector2D& vector2D) const;
+
 private:
 	T X = 0;
 	T Y = 0;
