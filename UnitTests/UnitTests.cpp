@@ -11,7 +11,7 @@ namespace UnitTests
 		TEST_METHOD(TestMethod1)
 		{
 			HelloFromLib();
-			Assert::IsTrue(1 + 1 == 2);
+			Assert::IsTrue(1 + 1 == 2, L"pass");
 		}
 	};
 }

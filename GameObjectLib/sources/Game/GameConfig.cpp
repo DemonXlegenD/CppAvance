@@ -1,4 +1,4 @@
-#include "GameConfig.h"
+#include "Game/GameConfig.h"
 
 void GameConfig::createKnight() {
 	PlayerArchetype* archetype = new PlayerArchetypeKnight();

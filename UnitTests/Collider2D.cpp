@@ -1,5 +1,5 @@
-#include "../GameObjectLib/Collider2D.h"
-#include "../GameObjectLib/Vector2D.h"
+#include "../GameObjectLib/includes/Collider2D.h"
+#include "../GameObjectLib/includes/Vector2D.h"
 #include "CppUnitTest.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;

@@ -1,4 +1,4 @@
-#include "Vector2D.h"
+#pragma once
 
 
 template<typename T>
