@@ -2,19 +2,29 @@
 #include <iostream>
 #include "Game/GameLog.h"
 #include "Error.h"
+#include <type_traits>
 
 template<typename T>
 class Container
 {
 public:
+	/*CONSTRUCTOR*/
+
 	Container();
 	Container(int size, int capacity, T* dynamicArray);
 
-	T* getAllElements();
+	/*OPERATOR*/
+
+	Container<T> operator=(const Container<T>& otherContainer);
+	bool operator==(const Container<T>& otherContainer);
+
+	/*HOME MADE*/
+
+	T* getArray();
+	void setArray(T* array);
 	T getElementByIndex(int index);
-
-	Container<T> showElements();
-
+	void showElements();
+	int findIndexByElement(T element);
 
 	/*ITERATORS*/
 
@@ -48,8 +58,6 @@ public:
 		}
 	};
 
-
-
 	Iterator begin();
 	Iterator end();
 	Iterator rbegin();
@@ -59,18 +67,15 @@ public:
 	Iterator crbegin() const;
 	Iterator crend() const;
 
-	int findIndexByElement(T element);
-
 	/*CAPACITY*/
 	int getSize();
 	int getCapacity();
-	int getActualCapacity();
-	Container<T> resize(int size);
-	Container<T> resize(int newSize, T element);
-	Container<T> empty();
-	Container<T> clear();
-	Container<T> reserve(int capacity);
-	Container<T> shrinkToFit();
+	int getLeftCapacity();
+	void resize(int size);
+	void resize(int newSize, T element);
+	bool empty();
+	void reserve(int capacity);
+	void shrinkToFit();
 
 	/*ELEMENT ACCESS*/
 	T operator[](int index);
@@ -78,24 +83,37 @@ public:
 	T front();
 	T back();
 	T data();
-	bool isEmpty();
 
 	/*MODIFIERS*/
-	Container<T> assign(int size, T value);
-	Container<T> assign(Container<T> container);
-	Container<T> assign(Iterator first, Iterator last);
-	Container<T> insert(int position, T value);
-	Container<T> insert(int position, T value, int number);
-	Container<T> insert(int position, Container<T> container);
-	Container<T> insert(int position, Iterator first, Iterator last);
-	Container<T> push(T element);
-	Container<T> pop();
+	void assign(int size, T value);
+	void assign(Container<T> container);
+	void assign(Iterator first, Iterator last);
 
+	void push_back(T element);
+	void pop_back();
 
+	void insert(int position, T value);
+	void insert(int position, T value, int number);
+	void insert(int position, Container<T> container);
+	void insert(int position, Iterator first, Iterator last);
+
+	void erase(int position);
+	void erase(int from, int to);
+
+	void swap(Container<T> otherContainer);
+
+	void clear();
+
+	Iterator emplace(Iterator it, T value);
+	void emplace_back(T value);
+
+	/*DESTRUCTOR*/
 	~Container();
+
 private:
 	int size = 0;
 	int capacity = 1;
 	T* dynamicArray = new T[size];
 };
 
+#include "Container.inl"
