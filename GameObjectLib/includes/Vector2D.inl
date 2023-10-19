@@ -8,17 +8,17 @@ template<typename T>
 Vector2D<T>::Vector2D(T X, T Y) : X(X), Y(Y) {}
 
 template<typename T>
-Vector2D<T> Vector2D<T>::add(const Vector2D left, const Vector2D right) {
+Vector2D<T> Vector2D<T>::add(Vector2D left, Vector2D right) {
 	return Vector2D(left.getX() + right.getX(), left.getY() + right.getY());
 }
 
 template<typename T>
-Vector2D<T> Vector2D<T>::minus(const Vector2D left, const Vector2D right) {
+Vector2D<T> Vector2D<T>::minus(Vector2D left, Vector2D right) {
 	return Vector2D(left.getX() - right.getX(), left.getY() - right.getY());
 }
 
 template<typename T>
-Vector2D<T> Vector2D<T>::kVector2D(T k, const Vector2D vector) {
+Vector2D<T> Vector2D<T>::kVector2D(T k, Vector2D vector) {
 	return Vector2D(k * vector.getX(), k * vector.getY());
 }
 
@@ -74,11 +74,10 @@ Vector2D<T> Vector2D<T>::positiveInfinity() {
 
 template<typename T>
 Vector2D<T> Vector2D<T>::normalized() {
-	T magnitude = magnitude();
-	if (magnitude == 0) {
+	if (magnitude() == 0) {
 		return Vector2D(0, 0);
 	}
-	return Vector2D<T>(X / magnitude, Y / magnitude);
+	return Vector2D<T>(X / magnitude(), Y / magnitude());
 }
 
 template<typename T>
@@ -300,5 +299,5 @@ T Vector2D<T>::operator[](int index) const {
 
 template<typename T>
 bool Vector2D<T>::operator==(const Vector2D& vector2D) const {
-	return (X == vector2D.getX() && Y == vector2D.getY());
+	return (X == vector2D.getX()) && (Y == vector2D.getY());
 }
