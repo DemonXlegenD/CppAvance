@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collider2D.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -178,6 +179,7 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collider2D.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Game.h" />
