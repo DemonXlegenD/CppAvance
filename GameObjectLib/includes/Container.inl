@@ -28,7 +28,7 @@ Container<T> Container<T>::operator=(const Container<T>& otherContainer) {
 
 template<typename T>
 //template <typename U = T, std::enable_if_t<decltype(std::declval<T>() == std::declval<T>())>> : std::true_type{}; >
-bool Container<T>::operator==(const Container<T>& otherContainer) {
+bool Container<T>::operator==(const Container<T>& otherContainer) const {
 	if (size == otherContainer.getSize()) {
 		for (int i = 0; i < size; i++) {
 			if (dynamicArray[i] != otherContainer.at(i)) return false;
@@ -36,6 +36,19 @@ bool Container<T>::operator==(const Container<T>& otherContainer) {
 	}
 	else {
 		return false;
+	}
+	return true;
+}
+
+//OPERATOR !=
+
+template<typename T>
+//template <typename U = T, std::enable_if_t<decltype(std::declval<T>() == std::declval<T>())>> : std::true_type{}; >
+bool Container<T>::operator!=(const Container<T>& otherContainer) const {
+	if (size == otherContainer.getSize()) {
+		for (int i = 0; i < size; i++) {
+			if (dynamicArray[i] == otherContainer.at(i)) return false;
+		}
 	}
 	return true;
 }
@@ -160,21 +173,21 @@ typename Container<T>::Iterator Container<T>::crend() const {
 //GET SIZE
 
 template<typename T>
-int Container<T>::getSize() {
+int Container<T>::getSize() const {
 	return size;
 }
 
 //GET CAPACITY
 
 template<typename T>
-int Container<T>::getCapacity() {
+int Container<T>::getCapacity() const {
 	return capacity;
 }
 
 //GET LEFT CAPACITY
 
 template<typename T>
-int Container<T>::getLeftCapacity() {
+int Container<T>::getLeftCapacity() const {
 	return capacity - size;
 }
 
@@ -248,20 +261,20 @@ T Container<T>::operator[](int index) {
 //AT
 
 template<typename T>
-T Container<T>::at(int index) {
+T Container<T>::at(int index) const {
 	return dynamicArray[index];
 }
 
 //FRONT
 
 template<typename T>
-T Container<T>::front() {
+T Container<T>::front() const {
 	return *(dynamicArray);
 }
 
 //BACK
 template<typename T>
-T Container<T>::back() {
+T Container<T>::back() const {
 	return *(dynamicArray + size);
 }
 
