@@ -85,3 +85,4 @@ private:
 	T Y = 0;
 };
 
+#include "Vector2D.inl"
