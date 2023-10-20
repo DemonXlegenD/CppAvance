@@ -18,13 +18,13 @@
     <ClCompile Include="UnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Collider2D.cpp">
+    <ClCompile Include="Collider2DTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2D.cpp">
+    <ClCompile Include="Vector2DTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Container.cpp">
+    <ClCompile Include="ContainerTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

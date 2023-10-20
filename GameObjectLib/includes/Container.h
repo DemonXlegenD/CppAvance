@@ -15,15 +15,15 @@ public:
 
 	/*OPERATOR*/
 
-	Container<T> operator=(const Container<T>& otherContainer);
+	Container<T>& operator=(const Container<T>& otherContainer);
 	bool operator==(const Container<T>& otherContainer) const;
 	bool operator!=(const Container<T>& otherContainer) const;
 
 	/*HOME MADE*/
 
-	T* getArray();
-	void setArray(T* array);
-	T getElementByIndex(int index);
+	T* getArray() const;
+	void setArray(T* array, int newSize);
+	T getElementByIndex(const int index) const;
 	void showElements();
 	int findIndexByElement(T element);
 
@@ -114,7 +114,7 @@ public:
 private:
 	int size = 0;
 	int capacity = 1;
-	T* dynamicArray = new T[size];
+	T* dynamicArray = new T[capacity];
 };
 
 #include "Container.inl"

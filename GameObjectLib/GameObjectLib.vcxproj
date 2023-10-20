@@ -167,6 +167,7 @@
     <ClCompile Include="sources\Container.cpp" />
     <ClCompile Include="sources\Error.cpp" />
     <ClCompile Include="sources\Game.cpp" />
+    <ClCompile Include="sources\GameObject.cpp" />
     <ClCompile Include="sources\Game\GameStats.cpp" />
     <ClCompile Include="sources\Game\GameState.cpp" />
     <ClCompile Include="sources\Game\GameLog.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="sources\Player\Archetype\PlayerArchetypeKnight.cpp" />
     <ClCompile Include="sources\Player\Archetype\PlayerArchetypeMage.cpp" />
     <ClCompile Include="sources\Player\PlayerArchetype.cpp" />
+    <ClCompile Include="sources\SceneAbstract.cpp" />
     <ClCompile Include="sources\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +185,7 @@
     <ClInclude Include="includes\Container.h" />
     <ClInclude Include="includes\Error.h" />
     <ClInclude Include="includes\Game.h" />
+    <ClInclude Include="includes\GameObject.h" />
     <ClInclude Include="includes\Game\GameStats.h" />
     <ClInclude Include="includes\Game\GameState.h" />
     <ClInclude Include="includes\Game\GameLog.h" />
@@ -192,10 +195,12 @@
     <ClInclude Include="includes\Player\Archetype\PlayerArchetypeMage.h" />
     <ClInclude Include="includes\Player\Archetype\PlayerArchetypeKnight.h" />
     <ClInclude Include="includes\Player\PlayerArchetype.h" />
+    <ClInclude Include="includes\SceneAbstract.h" />
     <ClInclude Include="includes\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="includes\Container.inl" />
+    <None Include="includes\Vector2D.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

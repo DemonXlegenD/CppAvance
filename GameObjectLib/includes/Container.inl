@@ -5,23 +5,34 @@
 /*==============================================================================================================================================*/
 
 template<typename T>
-Container<T>::Container() : size(0), capacity(1), dynamicArray(new T[capacity]) {}
+Container<T>::Container() : size(0), capacity(1), dynamicArray(new T[1]) {}
 
 template<typename T>
 Container<T>::Container(int size, int capacity, T* dynamicArray) : size(size), capacity(capacity), dynamicArray(dynamicArray) {}
 
 
 /*==============================================================================================================================================*/
-/*-----------------------------------------------------------------CONSTRUCTORS-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------OPERATORS--------------------------------------------------------------------*/
 /*==============================================================================================================================================*/
 
 //OPERATOR =
 
 template<typename T>
-Container<T> Container<T>::operator=(const Container<T>& otherContainer) {
-	size = otherContainer.getSize();
-	capacity = otherContainer.getCapacity();
-	dynamicArray = otherContainer.getArray();
+Container<T>& Container<T>::operator=(const Container<T>& otherContainer) {
+	if (this != &otherContainer) {
+		delete[] dynamicArray;
+		size = otherContainer.getSize();
+		capacity = otherContainer.getCapacity();
+		if (capacity > 0) {
+			dynamicArray = new T[capacity];
+			std::copy(otherContainer.getArray(), otherContainer.getArray() + size, dynamicArray);
+		}
+		else {
+			dynamicArray = nullptr;
+		}
+	}
+
+	return *this;
 }
 
 //OPERATOR ==
@@ -60,21 +71,28 @@ bool Container<T>::operator!=(const Container<T>& otherContainer) const {
 //GET ARRAY
 
 template<typename T>
-T* Container<T>::getArray() {
+T* Container<T>::getArray() const {
 	return dynamicArray;
 }
 
 //SET ARRAY
 
 template<typename T>
-void Container<T>::setArray(T* array) {
-	dynamicArray = array;
+void Container<T>::setArray(T* array, int newSize) {
+	delete[] dynamicArray;
+
+	// Copiez le tableau et sa taille
+	dynamicArray = new int[newSize];
+	size = newSize;
+	for (int i = 0; i < newSize; ++i) {
+		dynamicArray[i] = array[i];
+	}
 }
 
 //GET ELEMENT BY INDEX
 
 template<typename T>
-T Container<T>::getElementByIndex(int index) {
+T Container<T>::getElementByIndex(const int index) const {
 	if (index >= 0 && index < size) {
 		return dynamicArray[index];
 	}
@@ -198,9 +216,20 @@ void Container<T>::resize(int newSize) {
 	if (newSize > capacity) {
 		reserve(newSize);
 	}
-	for (int i = size; i < newSize; i++) {
-		dynamicArray[i] = (T)0;
+	if (newSize > size) {
+		for (int i = size; i < newSize; i++) {
+			dynamicArray[i] = 0;
+		}
 	}
+	else {
+		T* newArray = new T[capacity];
+		for (int i = 0; i < newSize; i++) {
+			newArray[i] = dynamicArray[i];
+		}
+		delete[] dynamicArray;
+		dynamicArray = newArray;
+	}
+	
 }
 
 template<typename T>
@@ -208,8 +237,18 @@ void Container<T>::resize(int newSize, T element) {
 	if (newSize > capacity) {
 		reserve(newSize);
 	}
-	for (int i = size; i < newSize; i++) {
-		dynamicArray[i] = element;
+	if (newSize > size) {
+		for (int i = size; i < newSize; i++) {
+			dynamicArray[i] = element;
+		}
+	}
+	else {
+		T* newArray = new T[capacity];
+		for (int i = 0; i < newSize; i++) {
+			newArray[i] = dynamicArray[i];
+		}
+		delete[] dynamicArray;
+		dynamicArray = newArray;
 	}
 }
 
@@ -226,13 +265,13 @@ bool Container<T>::empty() {
 template<typename T>
 void Container<T>::reserve(int newCapacity) {
 	if (newCapacity > capacity) {
+		capacity = newCapacity;
 		T* newArray = new T[capacity];
 		for (int i = 0; i < size; i++) {
 			newArray[i] = dynamicArray[i];
 		}
 		delete[] dynamicArray;
 		dynamicArray = newArray;
-		capacity = newCapacity;
 	}
 }
 
@@ -333,8 +372,7 @@ void Container<T>::assign(Iterator first, Iterator last) {
 template<typename T>
 void Container<T>::push_back(T element) {
 	if (size >= capacity) {
-		capacity *= 2;
-		reserve(capacity);
+		reserve(capacity * 2);
 	}
 	dynamicArray[size] = element;
 	size++;

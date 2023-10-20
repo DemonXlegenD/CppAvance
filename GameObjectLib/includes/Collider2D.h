@@ -4,6 +4,7 @@
 class Collider2D
 {
 public:
+	Collider2D();
 	Collider2D(Vector2D<float> position, float width, float height);
 	Collider2D(float x, float y, float width, float height);
 

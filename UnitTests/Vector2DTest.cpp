@@ -5,7 +5,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Vector2dTest
 {
-	TEST_CLASS(CollisionTrigger) {
+	TEST_CLASS(Vector) {
 
 		Vector2D<int> Vector1 = Vector2D<int>(5, 10);
 		Vector2D<float> Vector2 = Vector2D<float>(2.f, 5.f);
@@ -20,15 +20,15 @@ namespace Vector2dTest
 		}
 		TEST_METHOD(magnitude)
 		{
-			Assert::IsTrue(Vector1.magnitude() ==  ((5 * 5) + (10 * 10)));
+			Assert::IsTrue(Vector1.magnitude() ==  std::sqrt((5 * 5) + (10 * 10)));
 		}
 		TEST_METHOD(down)
 		{
-			Assert::IsTrue(Vector2.down() == Vector2D<float>(0.f,1.f));
+			Assert::IsTrue(Vector2.down() == Vector2D<float>(0.f,-1.f));
 		}	
 		TEST_METHOD(zero)
 		{
-			Assert::IsTrue(Vector2.down() == Vector2D<float>(0.f,-1.f));
+			Assert::IsTrue(Vector2.zero() == Vector2D<float>(0.f,0.f));
 		}	
 		TEST_METHOD(normalized)
 		{

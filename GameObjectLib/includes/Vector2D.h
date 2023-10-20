@@ -13,9 +13,9 @@ public:
 	Vector2D(T X, T Y);
 
 	/*Properties*/
-	double magnitude();
-	const T getX() { return X; }
-	const T getY() { return Y; }
+	double magnitude() const;
+	T getX() const { return X; }
+	T getY() const { return Y; }
 	void setX(T x) { X = x; }
 	void setY(T y) { Y = y; }
 	Vector2D normalized();

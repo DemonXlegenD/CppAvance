@@ -1,4 +1,4 @@
-#include "GameLog.h"
+#include "Game/GameLog.h"
 
 void GameLog::log(std::string& message) {
 	std::cout << std::string("Log : ") << message << std::endl;

@@ -160,10 +160,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Collider2D.cpp" />
-    <ClCompile Include="Container.cpp" />
+    <ClCompile Include="Collider2DTest.cpp" />
+    <ClCompile Include="ContainerTest.cpp" />
     <ClCompile Include="UnitTests.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Vector2DTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameObjectLib\GameObjectLib.vcxproj">

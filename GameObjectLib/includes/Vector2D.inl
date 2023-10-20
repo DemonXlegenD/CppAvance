@@ -26,7 +26,7 @@ Vector2D<T> Vector2D<T>::kVector2D(T k, Vector2D vector) {
 
 
 template<typename T>
-double Vector2D<T>::magnitude() {
+double Vector2D<T>::magnitude() const {
 	return std::sqrt(X * X + Y * Y);
 }
 

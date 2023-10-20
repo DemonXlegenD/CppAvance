@@ -2,7 +2,7 @@
 #include <ctime>
 #include <chrono>
 
-SceneAbstract::SceneAbstract();
+SceneAbstract::SceneAbstract() {}
 
 void SceneAbstract::start()
 {
@@ -12,9 +12,8 @@ void SceneAbstract::start()
 void SceneAbstract::update(float deltaTime)
 {
 	do {
-		float currentTime = std::chrono::system_clock::now();
-	}
-	while (true)
+		auto currentTime = std::chrono::system_clock::now();
+	} while (true);
 }
 
 void SceneAbstract::render()
@@ -22,4 +21,4 @@ void SceneAbstract::render()
 
 }
 
-SceneAbstract::~SceneAbstract();
+SceneAbstract::~SceneAbstract() {}
