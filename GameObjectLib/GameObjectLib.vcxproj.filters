@@ -18,40 +18,43 @@
     <ClCompile Include="sources\GameObjectLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Container.cpp">
+    <ClCompile Include="sources\Container.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2D.cpp">
+    <ClCompile Include="sources\Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameConfig.cpp">
+    <ClCompile Include="sources\Game\GameConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameLog.cpp">
+    <ClCompile Include="sources\Game\GameLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameState.cpp">
+    <ClCompile Include="sources\Game\GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameStats.cpp">
+    <ClCompile Include="sources\Game\GameStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="sources\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAbstract.cpp">
+    <ClCompile Include="sources\PlayerAbstract.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player\PlayerArchetype.cpp">
+    <ClCompile Include="sources\Error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player\Archetype\PlayerArchetypeKnight.cpp">
+    <ClCompile Include="sources\Collider2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player\Archetype\PlayerArchetypeMage.cpp">
+    <ClCompile Include="sources\Player\Archetype\PlayerArchetypeKnight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Error.cpp">
+    <ClCompile Include="sources\Player\Archetype\PlayerArchetypeMage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Player\PlayerArchetype.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,45 +62,48 @@
     <ClInclude Include="includes\GameObjectLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Container.h">
+    <ClInclude Include="includes\Container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2D.h">
+    <ClInclude Include="includes\Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameConfig.h">
+    <ClInclude Include="includes\Game\GameConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameLog.h">
+    <ClInclude Include="includes\Game\GameLog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameState.h">
+    <ClInclude Include="includes\Game\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameStats.h">
+    <ClInclude Include="includes\Game\GameStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="includes\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAbstract.h">
+    <ClInclude Include="includes\PlayerAbstract.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player\PlayerArchetype.h">
+    <ClInclude Include="includes\Player\PlayerArchetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player\Archetype\PlayerArchetypeKnight.h">
+    <ClInclude Include="includes\Player\Archetype\PlayerArchetypeKnight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player\Archetype\PlayerArchetypeMage.h">
+    <ClInclude Include="includes\Player\Archetype\PlayerArchetypeMage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Error.h">
+    <ClInclude Include="includes\Error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\Collider2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Container.inl">
+    <None Include="includes\Container.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

@@ -163,37 +163,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Container.cpp" />
-    <ClCompile Include="Error.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Game\GameStats.cpp" />
-    <ClCompile Include="Game\GameState.cpp" />
-    <ClCompile Include="Game\GameLog.cpp" />
-    <ClCompile Include="Game\GameConfig.cpp" />
-    <ClCompile Include="PlayerAbstract.cpp" />
-    <ClCompile Include="Player\Archetype\PlayerArchetypeMage.cpp" />
-    <ClCompile Include="Player\Archetype\PlayerArchetypeKnight.cpp" />
-    <ClCompile Include="Player\PlayerArchetype.cpp" />
+    <ClCompile Include="sources\Collider2D.cpp" />
+    <ClCompile Include="sources\Container.cpp" />
+    <ClCompile Include="sources\Error.cpp" />
+    <ClCompile Include="sources\Game.cpp" />
+    <ClCompile Include="sources\Game\GameStats.cpp" />
+    <ClCompile Include="sources\Game\GameState.cpp" />
+    <ClCompile Include="sources\Game\GameLog.cpp" />
+    <ClCompile Include="sources\Game\GameConfig.cpp" />
+    <ClCompile Include="sources\PlayerAbstract.cpp" />
     <ClCompile Include="sources\GameObjectLib.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="sources\Player\Archetype\PlayerArchetypeKnight.cpp" />
+    <ClCompile Include="sources\Player\Archetype\PlayerArchetypeMage.cpp" />
+    <ClCompile Include="sources\Player\PlayerArchetype.cpp" />
+    <ClCompile Include="sources\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Container.h" />
-    <ClInclude Include="Error.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Game\GameStats.h" />
-    <ClInclude Include="Game\GameState.h" />
-    <ClInclude Include="Game\GameLog.h" />
-    <ClInclude Include="Game\GameConfig.h" />
+    <ClInclude Include="includes\Collider2D.h" />
+    <ClInclude Include="includes\Container.h" />
+    <ClInclude Include="includes\Error.h" />
+    <ClInclude Include="includes\Game.h" />
+    <ClInclude Include="includes\Game\GameStats.h" />
+    <ClInclude Include="includes\Game\GameState.h" />
+    <ClInclude Include="includes\Game\GameLog.h" />
+    <ClInclude Include="includes\Game\GameConfig.h" />
     <ClInclude Include="includes\GameObjectLib.h" />
-    <ClInclude Include="PlayerAbstract.h" />
-    <ClInclude Include="Player\Archetype\PlayerArchetypeMage.h" />
-    <ClInclude Include="Player\Archetype\PlayerArchetypeKnight.h" />
-    <ClInclude Include="Player\PlayerArchetype.h" />
-    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="includes\PlayerAbstract.h" />
+    <ClInclude Include="includes\Player\Archetype\PlayerArchetypeMage.h" />
+    <ClInclude Include="includes\Player\Archetype\PlayerArchetypeKnight.h" />
+    <ClInclude Include="includes\Player\PlayerArchetype.h" />
+    <ClInclude Include="includes\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Container.inl" />
+    <None Include="includes\Container.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

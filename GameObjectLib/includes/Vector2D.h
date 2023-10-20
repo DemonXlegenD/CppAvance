@@ -14,8 +14,8 @@ public:
 
 	/*Properties*/
 	double magnitude();
-	T getX() { return X; }
-	T getY() { return Y; }
+	const T getX() { return X; }
+	const T getY() { return Y; }
 	void setX(T x) { X = x; }
 	void setY(T y) { Y = y; }
 	Vector2D normalized();
@@ -85,3 +85,4 @@ private:
 	T Y = 0;
 };
 
+#include "Vector2D.inl"

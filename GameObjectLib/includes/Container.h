@@ -16,7 +16,8 @@ public:
 	/*OPERATOR*/
 
 	Container<T> operator=(const Container<T>& otherContainer);
-	bool operator==(const Container<T>& otherContainer);
+	bool operator==(const Container<T>& otherContainer) const;
+	bool operator!=(const Container<T>& otherContainer) const;
 
 	/*HOME MADE*/
 
@@ -68,9 +69,9 @@ public:
 	Iterator crend() const;
 
 	/*CAPACITY*/
-	int getSize();
-	int getCapacity();
-	int getLeftCapacity();
+	int getSize() const;
+	int getCapacity() const;
+	int getLeftCapacity() const;
 	void resize(int size);
 	void resize(int newSize, T element);
 	bool empty();
@@ -79,9 +80,9 @@ public:
 
 	/*ELEMENT ACCESS*/
 	T operator[](int index);
-	T at(int index);
-	T front();
-	T back();
+	T at(int index) const;
+	T front() const;
+	T back() const;
 	T data();
 
 	/*MODIFIERS*/
