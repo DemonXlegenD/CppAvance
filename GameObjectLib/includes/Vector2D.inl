@@ -114,17 +114,17 @@ bool Vector2D<T>::equals(Vector2D<T> vector2D) {
 /*==============================================================================================================================================*/
 
 template<typename T>
-T Vector2D<T>::angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2) {
-	T magnitude1 = vector2D_1.magnitude();
-	T magnitude2 = vector2D_2.magnitude();
-	T dot = Vector2D<T>::dot(vector2D_1, vector2D_2);
-	T cosAngle = dot / (magnitude1 * magnitude2);
+double Vector2D<T>::angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2) {
+	double magnitude1 = vector2D_1.magnitude();
+	double magnitude2 = vector2D_2.magnitude();
+	double dot = Vector2D<T>::dot(vector2D_1, vector2D_2);
+	double cosAngle = dot / (magnitude1 * magnitude2);
 
 	return std::acos(cosAngle);
 }
 
 template<typename T>
-T Vector2D<T>::dot(const Vector2D<T> left, const Vector2D<T> right) {
+double Vector2D<T>::dot(const Vector2D<T> left, const Vector2D<T> right) {
 	return left.getX() * right.getX() + left.getY() * right.getY();
 }
 
@@ -235,8 +235,8 @@ Vector2D<T> Vector2D<T>::scale(const Vector2D<T> vector2D_1, const Vector2D<T> v
 }
 
 template<typename T>
-float Vector2D<T>::signedAngle(const Vector2D<T> from, const Vector2D<T> to) {
-	float angle = std::atan2(from.getY(), from.getX()) - atan2(to.getY(), to.getX());
+double Vector2D<T>::signedAngle(const Vector2D<T> from, const Vector2D<T> to) {
+	double angle = std::atan2(from.getY(), from.getX()) - atan2(to.getY(), to.getX());
 	return angle;
 }
 

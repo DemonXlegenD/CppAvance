@@ -50,8 +50,8 @@ public:
 
 	//MODIFIER LES return T
 	/*Static Methods*/
-	static T angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2);
-	static T dot(const Vector2D<T> left, const Vector2D<T> right);
+	static double angle(Vector2D<T> vector2D_1, Vector2D<T> vector2D_2);
+	static double dot(const Vector2D<T> left, const Vector2D<T> right);
 	static Vector2D<T> clampMagnitude(const Vector2D<T> vector, double maxMagnitude);
 	static double distance(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2);
 	static Vector2D<T> lerp(const Vector2D<T> vector2D_1, const Vector2D<T> vector2D_2, double t);
@@ -61,7 +61,7 @@ public:
 	static Vector2D<T> perpendicular(const Vector2D<T> vector);
 	static Vector2D<T> reflect(const Vector2D<T> vector2D, const Vector2D<T> normal);
 	static Vector2D<T> scale(const Vector2D<T> vector2D, const Vector2D<T> normal);
-	static float signedAngle(const Vector2D<T> from, const Vector2D<T> to);
+	static double signedAngle(const Vector2D<T> from, const Vector2D<T> to);
 
 	/*Operators*/
 	Vector2D operator+(const Vector2D& otherVector2D) const;
