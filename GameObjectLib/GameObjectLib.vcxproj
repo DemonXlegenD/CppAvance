@@ -163,7 +163,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sources\Collider2D.cpp" />
+    <ClCompile Include="sources\Component.cpp" />
+    <ClCompile Include="sources\Components\Collider2D.cpp" />
     <ClCompile Include="sources\Container.cpp" />
     <ClCompile Include="sources\Error.cpp" />
     <ClCompile Include="sources\Game.cpp" />
@@ -181,7 +182,8 @@
     <ClCompile Include="sources\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includes\Collider2D.h" />
+    <ClInclude Include="includes\Component.h" />
+    <ClInclude Include="includes\Components\Collider2D.h" />
     <ClInclude Include="includes\Container.h" />
     <ClInclude Include="includes\Error.h" />
     <ClInclude Include="includes\Game.h" />

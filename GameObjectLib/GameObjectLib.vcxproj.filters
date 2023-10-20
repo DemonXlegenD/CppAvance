@@ -45,7 +45,7 @@
     <ClCompile Include="sources\Error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Collider2D.cpp">
+    <ClCompile Include="sources\Components\Collider2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sources\Player\Archetype\PlayerArchetypeKnight.cpp">
@@ -61,6 +61,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sources\SceneAbstract.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,13 +107,16 @@
     <ClInclude Include="includes\Error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\Collider2D.h">
+    <ClInclude Include="includes\Components\Collider2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\SceneAbstract.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

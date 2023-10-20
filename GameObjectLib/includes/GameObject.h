@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Collider2D.h"
+#include "Components/Collider2D.h"
 #include "Vector2D.h"
 #include "Container.h"
 

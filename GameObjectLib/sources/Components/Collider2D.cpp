@@ -1,4 +1,4 @@
-#include "Collider2D.h"
+#include "Components/Collider2D.h"
 #include "Vector2D.h"
 
 Collider2D::Collider2D() : position(Vector2D<float>(0, 0)), width(100.f), height(100.f) {}
@@ -15,4 +15,8 @@ bool Collider2D::collisionTrigger(Collider2D& colliderB)
 
 
 	return (collisionX && collisionY);
+}
+
+double Collider2D::area() const {
+	return width * height;
 }

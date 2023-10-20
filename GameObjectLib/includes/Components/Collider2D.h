@@ -1,7 +1,8 @@
 #pragma once
+#include "Component.h"
 #include "Vector2D.h"
 
-class Collider2D
+class Collider2D : public Component
 {
 public:
 	Collider2D();
@@ -16,6 +17,8 @@ public:
 	float getHeight() { return height; }
 
 	bool collisionTrigger(Collider2D& colliderB);
+
+	virtual double area() const;
 
 
 protected:
