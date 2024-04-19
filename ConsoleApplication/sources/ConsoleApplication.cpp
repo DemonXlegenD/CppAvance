@@ -1,5 +1,3 @@
-#include "Header.h"
-#include "GameObjectLib.h"
 #include "../../GameObjectLib/includes/Container.h"
 
 int main()
