@@ -8,7 +8,6 @@ Ce projet C++ vise à explorer les bases avancées du langage en reproduisant un
 
 - Implémentation de base de la classe `Container` reproduisant les fonctionnalités principales de `std::vector`.
 - Tests unitaires pour vérifier le bon fonctionnement des différentes fonctionnalités de la classe `Container`.
-- Documentation détaillée sur l'utilisation de la classe `Container` et des tests unitaires.
 
 ## Installation
 
